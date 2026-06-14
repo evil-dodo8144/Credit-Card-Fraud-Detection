@@ -3,6 +3,7 @@ import json
 import joblib
 import warnings
 import pandas as pd
+import streamlit as st
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -35,7 +36,14 @@ os.makedirs("reports", exist_ok=True)
 
 print("\nLoading Dataset...")
 
-df = pd.read_csv("dataset/creditcard.csv")
+@st.cache_data
+def load_data():
+
+    url = "https://drive.google.com/file/d/18vFxh2HBkXdEG5D9I4PmQ2YgPYvHNG75/view?usp=sharing"
+
+    return pd.read_csv(url)
+
+df =  load_data()
 
 print(f"\nOriginal Dataset Shape: {df.shape}")
 

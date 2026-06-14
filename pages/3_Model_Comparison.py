@@ -22,8 +22,14 @@ st.title("⚖️ Model Comparison")
 # ----------------------------------
 # Load Data
 # ----------------------------------
+@st.cache_data
+def load_data():
 
-df = pd.read_csv("dataset/creditcard.csv")
+    url = "https://drive.google.com/file/d/18vFxh2HBkXdEG5D9I4PmQ2YgPYvHNG75/view?usp=sharing"
+
+    return pd.read_csv(url)
+
+df =  load_data()
 
 X = df.drop("Class", axis=1)
 y = df["Class"]
