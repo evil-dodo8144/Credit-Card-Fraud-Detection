@@ -9,16 +9,10 @@ from utils.plots import (
 
 st.title("📊 Dashboard")
 
-
-@st.cache_data
-def load_data():
-
-    url = "https://drive.google.com/file/d/18vFxh2HBkXdEG5D9I4PmQ2YgPYvHNG75/view?usp=sharing"
-
-    return pd.read_csv(url)
-
+from utils.data_loader import load_data
 
 df = load_data()
+
 
 # -----------------------------------
 # Load Metrics
