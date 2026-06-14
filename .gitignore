@@ -1,0 +1,7 @@
+dataset/creditcard.csv
+
+models/
+reports/
+
+__pycache__/
+*.pyc
